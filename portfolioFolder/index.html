@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+</head>
+<body>
+    <div class="fatherContainer">
+        <div class="container">
+            <div class="lineOne"></div>
+            <header>
+                <img src="img/bmodance.gif" alt="" class="bmoDance bmo">
+                <img src="./img/BMOgif.gif" alt="" class="bmoGif bmo">
+                <nav class="navGray">
+                    <ul class="ulFather">
+                        <!-- <div class="selectorIcons"></div> -->
+                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="2573">
+                            <p class="material-symbols-outlined gameSpan">
+                                stadia_controller
+                            </p>
+                            <li>Game</li>
+                        </ul>
+                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="879">
+                            <p class="material-symbols-outlined calcSpan">
+                                calculate
+                            </p>
+                            <li>Calculator</li>
+                        </ul>
+                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="1684">
+                            <p class="material-symbols-outlined tdSpan">
+                                select_check_box
+                            </p>
+                            <li>Td List</li>
+                        </ul>
+                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="100">
+                            <p class="material-symbols-outlined homeSpan">
+                                home
+                            </p>
+                            <li>Home</li>
+                        </ul>
+                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="3341">
+                            <p class="material-symbols-outlined mundialSpan">
+                                robot
+                            </p>
+                            <li>Mundial Api</li>
+                        </ul>
+                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="3920">
+                            <p class="material-symbols-outlined rolexSpan">
+                                robot
+                            </p>
+                            <li>Rolex Pr</li>
+                        </ul>
+                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="4856">
+                            <p class="material-symbols-outlined meSpan">
+                                account_box
+                            </p>
+                            <li>Me</li>
+                        </ul>
+                    </ul>
+                </nav>
+            </header>
+            <div>
+                <div class="containerOfProyects">
+                    <div class="home" id="homeId">
+                        <div class="homeContent">
+                            <h1>Welcome</h1>
+                            <img src="img/bmosit.webp" alt="" class="bmoSit bmo">
+                            <div><h2 class="TxtIamH">I am <span class="iAmTxt">Jose Pablo</span></h2></div>
+                            <p>Age: 18</p> 
+                            <p>This is my portfolio</p>
+                            <p>There you can see some of my projects</p>
+                        </div>
+                    </div>
+
+                   
+                    <div class="calculator apps" id="calcuId">
+                        <h1 class="htsk">Calculator</h1>
+                        <div class="inputContainer">
+                            <input type="text" class="typerInp" name="numberTyper">
+                            <button class="btnResultado" value="" onclick="valorCalc(this)">=</button>
+                            <img src="img/warning-icon-transparent-free-png.webp" alt="img" class="warningImg hide">    
+                            <p class="result"></p>
+                        </div>
+                        <div class="btnContainer">
+                            <button class="btn numberBtn" value="7" onclick="numeros(this)">7</button>
+                            <button class="btn numberBtn" value="8" onclick="numeros(this)">8</button>
+                            <button class="btn numberBtn" value="9" onclick="numeros(this)">9</button>
+                            <button class="btn funcBtn divBtn" value="/" onclick="numbersF(this)">÷</button>
+
+                            <button class="btn numberBtn" value="4" onclick="numeros(this)">4</button>
+                            <button class="btn numberBtn" value="5" onclick="numeros(this)">5</button>
+                            <button class="btn numberBtn" value="6" onclick="numeros(this)">6</button>
+                            <button class="btn funcBtn multBtn" value="*" onclick="numbersF(this)">X</button>
+
+                            <button class="btn numberBtn" value="1" onclick="numeros(this)">1</button>
+                            <button class="btn numberBtn" value="2" onclick="numeros(this)">2</button>
+                            <button class="btn numberBtn" value="3" onclick="numeros(this)">3</button>
+                            <button class="btn funcBtn restBtn" value="-" onclick="numbersF(this)">-</button>
+
+                            <button class="btn numberBtn" value="0" onclick="numeros(this)">0</button>
+                            <button class="btn numberBtn" value="." onclick="numeros(this)">.</button>
+                            <button class="btn funcBtn deleteBtn" value="C" onclick="borrar()">C</button>
+                            <button class="btn funcBtn sumaBtn" value="+" onclick="numbersF(this)">+</button>
+                        </div>
+                        <button class="clear hide" onclick="clearAll()">Clear History</button>
+                        <table class="fatherResults hide">
+                            <thead>
+                                <tr class="TheadChild">
+                                    <th>Operation</th>
+                                    <th class="resultTH">Result</th>
+                                </tr>
+                            </thead>
+                            <tbody class="oldResults"></tbody>
+                        </table>
+                    </div>
+                    <div class="containerTD apps" id="tdListId">
+                        <h1 class="htsk">ToDo List</h1>
+                        <div class="inpSearch hide">
+                            <input type="text" placeholder="Search your task" class="searchInp" onkeyup="inpSearchFn(this)">
+                            <button class="searchBtn" onclick="btnadder(this)"><img src="img/icone-loupe-noir.png" alt="" class="lupaImg"></button> 
+                        </div>   
+                        <div class="inpCont">
+                            <input type="text" placeholder="Write your task" class="inpTd">
+                            <button class="addBtnTD" onclick="btnadder(this)">+</button>
+                        </div>
+                        <div class="colorIndiator">
+                            <p class="whitep">Pending</p>
+                            <p class="aquap">In Progress</p>
+                            <p class="grayp">On hold</p>                
+                            <p class="greenp">Complete</p>
+                        </div>
+                        <div class="tasksContainer">
+                            <ul class="ulF"></ul>
+                        </div>
+                        <div class="empty">
+                            <p>We dont have any tasks for you</p>
+                        </div>
+                    </div>
+                
+                    <div class="gameContainer">
+                        <div class="settingsOfGame">
+                            <div class="custom" id="gameId">
+                                <h1>Customize Game</h1>
+                                <select class="roundsOptions customBtn" onchange="addRounds(this)">
+                                    <option class="roundsOpt roundsDefault" value="1">1 Round</option>
+                                    <option class="roundsOpt" value="3">3 Rounds</option>
+                                    <option class="roundsOpt" value="5">5 Rounds</option>
+                                    <option class="roundsOpt" value="10">10 Rounds</option>
+                                </select>
+                                <button class="computerPlayer customBtn" onclick="playFunc(this)">Play</button>
+                            </div>
+                        </div>
+                        <div class="game">
+                            <h2>¡Rock, Paper, Scissors!</h2>
+                            <h3>Round:<span class="roundsCuant"></span></h3>
+                            <h2 class="winners hide">Game Winner: <span class="gameWinner"></span></h2>
+                            <div class="Player1 players">
+                                <h1>Me</h1>
+                                <p class="pointsP">Points: <span class="playerPoints"></span></p>
+                                <img class="imgGame hide" src="img/rockHand.png" alt="Rock" data-elem="rock" onclick="gameFunctions(this)">
+                                <img class="imgGame hide" src="img/paperHand.png" alt="Paper" data-elem="paper" onclick="gameFunctions(this)">
+                                <img class="imgGame hide" src="img/victory-hand-google.webp" alt="scissors" data-elem="scissors" onclick="gameFunctions(this)">
+                                <h2 class="">You: <span class="playerChoice"></span></h2>
+                            </div>
+                            <div class="winner">
+                                <h2 class="winners">Round Winner: <span class="spWinner"></span></h2>
+                                <button class="resetGame" onclick="resetBtn()">Play Again</button>
+                            </div>
+                            <div class="computer players">
+                                <h1>PC</h1>
+                                <p class="pointsP">Points: <span class="pcPoints"></span></p>
+                                <img class="imgGame imgRock hide" src="img/rockHand.png" alt="Rock" data-elem="rock">
+                                <img class="imgGame imgPaper hide" src="img/paperHand.png" alt="Paper" data-elem="paper">
+                                <img class="imgGame imgScissors hide" src="img/victory-hand-google.webp" alt="scissors" data-elem="scissors">
+                                <h2>PC: <span class="pcChoice"></span></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mundialApi" id="mundialId">
+                        <h1>MundialApi</h1>
+                        <p>Is a project that i used to learn how to use APIs</p>
+                        <a href="https://mundialapi.netlify.app/" target="_blank" class="mundialBtn">Clik here to run project</a>
+                    </div>
+                    <div class="rolexPr" id="rolexId">
+                        <h1>Rolex</h1>
+                        <p>Is a practice of a rolex shop</p>
+                        <a href="https://rolexpractice.netlify.app/" target="_blank" class="mundialBtn">Clik here to run project</a>
+                    </div>
+                    <div class="tic-tac-toe">
+                        <div class="containerOfElements">
+                            <div class="circlesBox">
+                                <img src="./img/circle-image.png" alt="" class="circleImg" onclick="clickCircle(this)">
+                                <img src="./img/circle-image.png" alt="" class="circleImg" onclick="clickCircle(this)">
+                                <img src="./img/circle-image.png" alt="" class="circleImg" onclick="clickCircle(this)">
+                                <img src="./img/circle-image.png" alt="" class="circleImg" onclick="clickCircle(this)">
+                                <img src="./img/circle-image.png" alt="" class="circleImg" onclick="clickCircle(this)">
+                                <img src="./img/circle-image.png" alt="" class="circleImg" onclick="clickCircle(this)">
+                                <img src="./img/circle-image.png" alt="" class="circleImg" onclick="clickCircle(this)">
+                                <img src="./img/circle-image.png" alt="" class="circleImg" onclick="clickCircle(this)">
+                                <img src="./img/circle-image.png" alt="" class="circleImg" onclick="clickCircle(this)">
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="iAm" id="cardId">
+                        <div class="card" style="width:500px">
+                            <h4 class="card-title">Jose Pablo</h4>
+                            <img class="card-img-top" src="./img/meImg.jpg" alt="Card image">
+                            <div class="card-img-overlay">
+                                <p class="card-text"><h2>Front-end Developer</h2>
+                                    <p><strong>Skills:</strong>HTML, CSS, Bootstrap, JavaScript, jQuery, GreenSock.</p>
+                                    <p>• Develop of responsive components, DOM manipulation and cross-browser compatibility.</p>
+                                    <p>• Working with Bootstrap, jQuery, Ajax, HTML, CSS, Javascript, among others technologies.</p>
+                                </p>
+                            <a href="#" class="btn btn-primary">HOME</a>
+                            </div>
+                        </div>
+                    </div>                 
+                </div>
+            </div>
+            <footer class="footerCls">
+                 <nav>
+                    <ul class="ulClsFooter"  onclick="funcsFooter(this)">
+                        <img src="./img/linkedin.png" alt="" class="imgsFooter">
+                        <li>Linkedin</li>
+                        <div class="cardContact cardLinkedin hide" data-value="true">
+                            <div class="cardbodyLinkedin">
+                              <h4 class="card-tittleLinkedin">linkedin Page</h4>
+                              <a href="https://www.linkedin.com/in/jos%C3%A9-castillo-a1463526b/" class="cardLinkTwo" target="_blank">Watch Profile</a>
+                            </div>
+                        </div>
+                    </ul>
+                    <ul class="ulClsFooter" onclick="funcsFooter(this)">
+                        <img src="./img/github.png" alt="" class="imgsFooter">
+                        <li>Github</li>
+                        <div class="cardContact cardGit hide" data-value="true">
+                            <div class="cardbodyGithub">
+                              <h4 class="card-tittleGithub">Github</h4>
+                              <a href="https://github.com/Josestate" class="cardLinkTwo" target="_blank">Watch Profile</a>
+                            </div>
+                        </div>
+                    </ul>
+                    <ul class="ulClsFooter" onclick="funcsFooter(this)">
+                        <img src="./img/llamada.png" alt="" class="imgsFooter">
+                        <li>Contact</li>
+                        <div class="cardContact cardNumber hide" data-value="true">
+                            <div class="cardbodyContact">
+                              <h4 class="card-tittleContact">Contact</h4>
+                              <p class="cardLinkContact">+506 8650 1566</p>
+                              <a href="https://wa.me/86501566" class="cardLinkTwo" target="_blank">WhatsApp</a>
+                            </div>
+                        </div>
+                    </ul>
+                 </nav>
+            </footer>
+        </div>
+    </div>
+    <div class="block"></div>
+    <script src="main.js"></script>
+</body>
+</html>
