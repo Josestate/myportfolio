@@ -1,4 +1,4 @@
-
+gsap.registerPlugin(ScrollTrigger);
 const homeSpan = document.querySelector(".homeSpan");
 const calcSpan = document.querySelector(".calcSpan");
 const TdSPan = document.querySelector(".tdSpan");
@@ -8,12 +8,9 @@ const rolex = document.querySelector(".rolexSpan");
 const meImg = document.querySelector(".meSpan");
 let icon;
 
-gsap.to(".homeSpan", {y:0,delay: 3,duration: 1, opacity: 1, display: "inline-grid"});
-gsap.from(".bmoDance", {y:-500,delay: 2, duration: 1, opacity: -2});
-gsap.from(".bmoGif", {y:-500,delay: 2.5, duration: 1, opacity: -2});
-gsap.from(".lineOne", {x:-5000, duration: 2, opacity: -1});
 gsap.from(".home", {x:-2000,delay: 1.5, duration: 1,opacity: -1});
-gsap.from(".bmoSit", {x:-600,delay: 2,duration: 2.5, ease:'back'});
+gsap.to(".homeSpan", {y:0,delay: 3,duration: 1, opacity: 1, display: "inline-grid"});
+
 
 gsap.from(".calculator",{
     scrollTrigger: {
@@ -93,17 +90,28 @@ gsap.from(".tic-tac-toe",{
     opacity: 0,
     ease: 'bounce'
 });
-gsap.from(".iAm",{
+gsap.from(".climaContainer",{
     scrollTrigger: {
-        trigger: ".iAm",
+        trigger: ".climaContainer",
         start: "top center",
         toggleActions: "restart none none none"
     },
     x:-1000,
     duration: 2,
-    opacity: 0,
-    ease: 'bounce'
+    ease: 'bounce',
+    opacity: 0
 });
+// gsap.from(".iAm",{
+//     scrollTrigger: {
+//         trigger: ".iAm",
+//         start: "top center",
+//         toggleActions: "restart none none none"
+//     },
+//     x:-1000,
+//     duration: 2,
+//     opacity: 0,
+//     ease: 'bounce'
+// });
 gsap.from(".footerCls",{
     scrollTrigger: {
         trigger: ".footerCls",
@@ -148,13 +156,21 @@ setInterval(() => {
     
 }, 3000);
 
-
+function startPrt(){
+    document.querySelector("body").style.overflowY = 'scroll'
+    gsap.to('.home', {opacity:0, display: 'none'});
+    gsap.to('.fatherContainer', {delay:1, duration: 1, display:'block', opacity:1 });
+    gsap.from(".bmoDance", {y:-500,delay: 2, duration: 1, opacity: -1});
+    gsap.from(".bmoGif", {y:-500,delay: 2, duration: 1, opacity: -1});
+    gsap.from(".lineOne", {delay:2, x:-5000, duration: 2, opacity: -1});
+    gsap.from(".bmoSit", {x:-600,delay: 2,duration: 2.5, ease:'back'});
+    gsap.from(".iAm", {delay:2, x: -1000, opacity: 0})
+}
 
 // JS OF CALCULATOR
 
 function numeros(e){
     document.querySelector(".typerInp").value += e.value;
-    console.log(document.querySelector(".typerInp").value);
     document.querySelector(".result").textContent = eval(document.querySelector(".typerInp").value);
     document.querySelector(".warningImg").classList.add("hide");
     document.querySelector(".result").classList.remove("hide");
@@ -476,6 +492,7 @@ function resetBtn(e){
     });
 }
 // JS OF TIC-TAC-TOE
+
 let clickCount = 0;
 function clickCircle(e){
     clickCount++;
@@ -486,6 +503,38 @@ function clickCircle(e){
         e.src = "./img/x-image.png";
     }
 }
+// JS APP CLIMA
+
+let result = document.querySelector('.resultClima')  
+let cityVal = document.querySelector('.inpCity');
+let nameCountry = document.querySelector('#countryClima');
+const form = document.querySelector('.getWeather')
+
+function callapi(city, country){
+    const apiId = '7438c9481c599ed981801783b7e38850';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal.value},${nameCountry.value}&appid=${apiId}`;
+    fetch(apiUrl)
+    .then(resp => resp.json())
+    .then(data => {
+        document.querySelector('.temp').textContent = data.main.temp;
+        document.querySelector('.maxTemp').textContent = data.main.temp_max;
+        document.querySelector('.minTemp').textContent = data.main.temp_min;
+        document.querySelector('.cityResult').textContent = data.main.name;
+        document.querySelector(".tempH").classList.remove("hide");
+        document.querySelector(".maxTmp").classList.remove("hide");
+        document.querySelector(".minTmp").classList.remove("hide");
+    });
+ 
+}
+
+form.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    if(cityVal.value === '' || nameCountry.value === ''){
+        return alert('ambos campos son obligatorios');
+    }
+    callapi(cityVal.value, nameCountry.value);
+});
+
 //JS OF FOOTER
 let childrenCls;
 let clickFooter = true;

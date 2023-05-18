@@ -7,10 +7,18 @@
 input{
     color: #000;
 }
+.fatherContainer{
+    opacity: 0;
+    display: none;
+}
+.coverContainer{
+    /* z-index: 20; */
+}
 body{
     background-image: url(./../img/COLORSdOS.jpg);
     background-size: cover;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 .bmo{
     position: absolute;
@@ -102,11 +110,11 @@ header ul li{
     left: 442px;
 }
 .home{
-    /* width: 1000px; */
+    width: cover;
     display: flex;
     background-image: url(./../img/COLORS.jpg);
     border-radius: 10px;
-    margin: 60px 0 20%;
+    margin: 60px 0;
     box-shadow: #bfb8b8db 0 0 20px 20px;
 }
 .homeContent{
@@ -115,6 +123,28 @@ header ul li{
     padding: 50px;
     text-align: center;
 }
+.startPort{
+    background-image: linear-gradient(to left, #5d00ffb9, #16e86db8, #eb0707a9, #5d00ffb9,  #eb0707a9, #16e86db8);    
+    background-size: 700px;
+    height: 25%;
+    width: 30%;
+    box-shadow: #bfb8b8db 0 0 20px 20px;
+    border: none;
+}  
+.startPort:hover{
+    animation: color 3s linear infinite;
+    box-shadow: #bfb8b8db 0 0 30px 20px;
+    @keyframes color {
+        from {
+            background-position: 0% 50%;
+        }
+        to {
+            background-position:  100% 50%;
+        }
+    }
+}  
+
+
 .iAm{
     display: grid;
     justify-content: center;
@@ -582,9 +612,6 @@ footer nav ul li{
 .block{
     pointer-events: none;
 }
-.hide{
-    display: none;
-}
 .tic-tac-toe{
     width: auto;
     display: flex;
@@ -594,6 +621,38 @@ footer nav ul li{
     box-shadow: #bfb8b8db 0 0 10px 10px;
     border-radius: 10px;
     margin: 100px 0 20%;
+}
+
+.climaContainer{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    margin: 100px 0 20%;
+    box-shadow: #bfb8b8db 0 0 10px 10px;
+    background: url("../img/COLORS.jpg");
+}
+.appClima{
+    text-align: center;
+    padding: 20px;
+    width: 30%;
+}
+.btnSumbitClima{
+    box-shadow: #bfb8b8db 0 0 10px 10px;
+    margin-top: 20px;
+    background-color: black;
+    width: 100%;
+    color: #bfb8b8db;
+    border-radius: 20px;
+}
+.btnSumbitClima:hover{
+    box-shadow: #bfb8b8db 0 0 15px 15px;
+    color: rgb(127, 231, 127);
+}
+#countryClima{
+    color: #000;
+}
+#countryClima option{
+    color: #000;
 }
 .containerOfElements{
     width: 35%;
@@ -664,4 +723,7 @@ footer nav ul li{
     .cardContact{
         width: 120px;
     }
+  }
+  .hide{
+    display: none;
   }

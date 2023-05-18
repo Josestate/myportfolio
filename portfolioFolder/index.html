@@ -13,6 +13,17 @@
     <title>Portfolio</title>
 </head>
 <body>
+    <div class="home" id="homeId">
+        <div class="homeContent">
+            <h1>Welcome</h1>
+            <img src="img/bmosit.webp" alt="" class="bmoSit bmo">
+            <div><h2 class="TxtIamH">I am <span class="iAmTxt">Jose Pablo</span></h2></div>
+            <p>Age: 18</p> 
+            <p>This is my portfolio</p>
+            <p>There you can see some of my projects</p>
+            <button class="startPort" onclick="startPrt()">Start</button>
+        </div>
+    </div>
     <div class="fatherContainer">
         <div class="container">
             <div class="lineOne"></div>
@@ -22,65 +33,84 @@
                 <nav class="navGray">
                     <ul class="ulFather">
                         <!-- <div class="selectorIcons"></div> -->
-                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="2573">
-                            <p class="material-symbols-outlined gameSpan">
-                                stadia_controller
+                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="100">
+                            <p class="material-symbols-outlined meSpan">
+                                account_box
                             </p>
-                            <li>Game</li>
+                            <li>Me</li>
                         </ul>
-                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="879">
+                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="1226">
                             <p class="material-symbols-outlined calcSpan">
                                 calculate
                             </p>
                             <li>Calculator</li>
                         </ul>
-                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="1684">
+                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="1962">
                             <p class="material-symbols-outlined tdSpan">
                                 select_check_box
                             </p>
                             <li>Td List</li>
                         </ul>
-                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="100">
+                        <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover" >
+                            Games   
+                        </button>
+                        <!-- <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="2768">
+                            <p class="material-symbols-outlined gameSpan">
+                                stadia_controller
+                            </p>
+                            <li>Game</li>
+                        </ul> -->
+                        <!-- <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="1962">
                             <p class="material-symbols-outlined homeSpan">
                                 home
                             </p>
                             <li>Home</li>
-                        </ul>
-                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="3341">
+                        </ul> -->
+                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="3568">
                             <p class="material-symbols-outlined mundialSpan">
                                 robot
                             </p>
                             <li>Mundial Api</li>
                         </ul>
-                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="3920">
+                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="4044">
                             <p class="material-symbols-outlined rolexSpan">
                                 robot
                             </p>
                             <li>Rolex Pr</li>
                         </ul>
-                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="4856">
+                        <!-- <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="4744">
+                            <p class="material-symbols-outlined gameSpan">
+                                stadia_controller
+                            </p>
+                            <li>tic-tac-toe</li>
+                        </ul> -->
+                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="5382">
                             <p class="material-symbols-outlined meSpan">
                                 account_box
                             </p>
-                            <li>Me</li>
+                            <li>clima</li>
                         </ul>
                     </ul>
                 </nav>
             </header>
             <div>
                 <div class="containerOfProyects">
-                    <div class="home" id="homeId">
-                        <div class="homeContent">
-                            <h1>Welcome</h1>
-                            <img src="img/bmosit.webp" alt="" class="bmoSit bmo">
-                            <div><h2 class="TxtIamH">I am <span class="iAmTxt">Jose Pablo</span></h2></div>
-                            <p>Age: 18</p> 
-                            <p>This is my portfolio</p>
-                            <p>There you can see some of my projects</p>
+                    
+                    <div class="iAm" id="cardId">
+                        <div class="card" style="width:500px">
+                            <h4 class="card-title">Jose Pablo</h4>
+                            <!-- <img class="card-img-top" src="./img/meImg.jpg" alt="Card image"> -->
+                            <div class="card-img-overlay">
+                                <p class="card-text"><h2>Front-end Developer</h2>
+                                    <p><strong>Skills:</strong>HTML, CSS, Bootstrap, JavaScript, jQuery, GreenSock.</p>
+                                    <p>• Develop of responsive components, DOM manipulation and cross-browser compatibility.</p>
+                                    <p>• Working with Bootstrap, jQuery, Ajax, HTML, CSS, Javascript, among others technologies.</p>
+                                </p>
+                            <a href="#" class="btn btn-primary">HOME</a>
+                            </div>
                         </div>
                     </div>
 
-                   
                     <div class="calculator apps" id="calcuId">
                         <h1 class="htsk">Calculator</h1>
                         <div class="inputContainer">
@@ -208,21 +238,35 @@
                                 <img src="./img/circle-image.png" alt="" class="circleImg" onclick="clickCircle(this)">
                             </div>
                         </div>
-                    </div>  
-                    <div class="iAm" id="cardId">
-                        <div class="card" style="width:500px">
-                            <h4 class="card-title">Jose Pablo</h4>
-                            <img class="card-img-top" src="./img/meImg.jpg" alt="Card image">
-                            <div class="card-img-overlay">
-                                <p class="card-text"><h2>Front-end Developer</h2>
-                                    <p><strong>Skills:</strong>HTML, CSS, Bootstrap, JavaScript, jQuery, GreenSock.</p>
-                                    <p>• Develop of responsive components, DOM manipulation and cross-browser compatibility.</p>
-                                    <p>• Working with Bootstrap, jQuery, Ajax, HTML, CSS, Javascript, among others technologies.</p>
-                                </p>
-                            <a href="#" class="btn btn-primary">HOME</a>
+                    </div> 
+                    
+                    <div class="climaContainer">
+                        <div class="appClima">
+                            <div class="resultClima">
+                                <h1>Buscador de clima</h1>
+                                <h5 class="hide climaEn">Clima en <span class="cityResult"></span></h5>
+                                <h2 class="hide tempH">Temp: <span class="temp"></span>°C</h2>
+                                <p  class="hide maxTmp">Max: <span class="maxTemp"></span>°C</p>
+                                <p  class="hide minTmp">Min: <span class="minTemp"></span>°C</p>
                             </div>
+                            <form action="" method="post" class="getWeather">
+                                <input type="text" name="city" placeholder="City" class="inpCity">
+                                <select name="" id="countryClima">
+                                    <option disabled selected value="">Select the Country</option>
+                                    <option value="AR">Argentina</option>
+                                    <option value="CO">Colombia</option>
+                                    <option value="CR">Costa Rica</option>
+                                    <option value="ES">España</option>
+                                    <option value="US">Estados Unidos</option>
+                                    <option value="MX">Mexico</option>
+                                    <option value="PE">Peru</option>
+                                </select>
+                                <input type="submit" value="Get Weather" class="btnSumbitClima">
+                            </form>
                         </div>
-                    </div>                 
+                    </div>
+        
+                                    
                 </div>
             </div>
             <footer class="footerCls">
