@@ -2,21 +2,19 @@
     width: 100%;
     margin: 0;
     font-family: Arial;
-    color: white;
+    color: #ffff;
 }
 input{
-    color: #000;
+    color: #2950c7;;
 }
 .fatherContainer{
     opacity: 0;
     display: none;
 }
-.coverContainer{
-    /* z-index: 20; */
-}
 body{
     background-image: url(./../img/COLORSdOS.jpg);
-    background-size: cover;
+    background-size: auto;
+    background-repeat: no-repeat;
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -54,6 +52,7 @@ header nav{
 }
 .ulFather{
     text-align: center;
+    align-items: center;
     padding: 10px;
     display: grid;
     justify-content: center;
@@ -66,21 +65,25 @@ header nav{
 header ul li{
     font-weight: 600;
     list-style: none;
-    /* margin: 10px 20px; */
-    text-align: center;
+    font-size: medium;
+}
+.linksNav{
+    color: #2950c7;
+    text-decoration: none;
+    width: fit-content;
+}
+.linksNav:hover{
+    cursor: pointer;
+    background-color: #ffffff48;
+    border-radius: 10px;
+    box-shadow:#fff 0 0 10px;
+    padding: 5px;
 }
 .headNav{
     display: grid;
     justify-content: center;
     padding: 0;
 }
-.headNav:hover{
-    cursor: pointer;
-    background-color: #ffffff48;
-    border-radius: 10px;
-    box-shadow:#fff 0 0 10px;
-}
-
 .material-symbols-outlined{
     position: absolute;
     transform: translate(0px, -130px);
@@ -102,9 +105,6 @@ header ul li{
 }
 .ancoreClsBtns{
     text-decoration: none;
-}
-.homeSpan{
-    /* display: flex; */
 }
 .calcNav:hover{
     left: 442px;
@@ -130,6 +130,7 @@ header ul li{
     width: 30%;
     box-shadow: #bfb8b8db 0 0 20px 20px;
     border: none;
+    border-radius: 15px;
 }  
 .startPort:hover{
     animation: color 3s linear infinite;
@@ -144,7 +145,27 @@ header ul li{
     }
 }  
 
-
+.btnGamesBox{
+    display: flex;
+    justify-content: center;
+    color: #000000;
+    background: #2950c7;
+    border: none;
+    box-shadow: #2950c7 0 0 10px;
+    border-end-end-radius: 50px;
+    border-start-start-radius: 50px;
+}
+.gamesBox{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    opacity: 0;
+}
+.gameSpan{
+    top: -40px;
+}
 .iAm{
     display: grid;
     justify-content: center;
@@ -634,7 +655,7 @@ footer nav ul li{
 .appClima{
     text-align: center;
     padding: 20px;
-    width: 30%;
+    width: 70%;
 }
 .btnSumbitClima{
     box-shadow: #bfb8b8db 0 0 10px 10px;
@@ -668,7 +689,20 @@ footer nav ul li{
     width: 100%;
     opacity: 0;
 }
-@media (max-width: 1000px) {
+.bi{
+    top: 0%;
+    left: 0;
+    position: fixed;
+    width: 10%;
+    margin: 10px 30px;
+    z-index: 20;
+}
+.bi img{
+    background-color: #bfb8b8db;
+    padding: 10px;
+    box-shadow: #bfb8b8db 0 0 10px 8px;
+}
+@media (max-width: 1024px) {
     html{
         overflow-x: hidden;
     }
@@ -682,12 +716,12 @@ footer nav ul li{
     }
     .bmoGif{
         width: 50px;
-        height: auto;
+        /* height: auto; */
         z-index: 11;
     }
     .bmoSit{
         width: 14%;
-        height: auto;
+        /* height: auto; */
         z-index: 11;
     }
     .bmoDance{
@@ -726,4 +760,27 @@ footer nav ul li{
   }
   .hide{
     display: none;
+  }
+  @media screen and (max-width: 700px) {
+    .gamesBox{
+        width: 70%;
+        background: black;
+        border-radius: 20px;
+        padding: 5px;
+        position: absolute;
+        left: 70%;
+        box-shadow: black 0px 0px 10px;
+    }
+    .navGray{
+        top: -1000px;
+    }
+    .ulFather{
+        grid-template-columns: none;
+        width: 50%;
+        grid-gap: 20px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
   }

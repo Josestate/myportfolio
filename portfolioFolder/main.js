@@ -1,5 +1,4 @@
-gsap.registerPlugin(ScrollTrigger);
-const homeSpan = document.querySelector(".homeSpan");
+
 const calcSpan = document.querySelector(".calcSpan");
 const TdSPan = document.querySelector(".tdSpan");
 const game = document.querySelector(".gameSpan");
@@ -7,11 +6,53 @@ const mundi = document.querySelector(".mundialSpan");
 const rolex = document.querySelector(".rolexSpan");
 const meImg = document.querySelector(".meSpan");
 let icon;
+// JS OF HOME
+setInterval(() => {
+    let textHome =  document.querySelector(".iAmTxt");
+    gsap.to(textHome, {duration: 1, width: 0, onComplete: function(){
+        if(textHome.textContent == "Jose Pablo"){
+            textHome.textContent = "Front-End";
+        }
+        else{
+            textHome.textContent = "Jose Pablo";
+        }
+    }});
+    gsap.to(textHome, {delay:1, duration: 1, width: 160});
+   
+    
+}, 2500);
 
-gsap.from(".home", {x:-2000,delay: 1.5, duration: 1,opacity: -1});
-gsap.to(".homeSpan", {y:0,delay: 3,duration: 1, opacity: 1, display: "inline-grid"});
+function startPrt(){
+    document.querySelector("body").style.backgroundRepeat = 'repeat';
+    document.querySelector("body").style.overflowY = 'scroll';
+    gsap.to('.home', {opacity:0, display: 'none'});
+    gsap.to('.fatherContainer', {delay:1, duration: 1, display:'block', opacity:1 });
+    gsap.from(".bmoDance", {y:-500,delay: 2, duration: 2, opacity: 0});
+    gsap.from(".bmoGif", {y:-500,delay: 2, duration: 1, opacity: 0});
+    gsap.from(".lineOne", {delay:2, x:-5000, duration: 2, opacity: -1});
+    gsap.from(".bmoSit", {x:-600,delay: 2,duration: 2.5, ease:'back'});
+    gsap.from(".iAm", {delay:2, x: -1000, opacity: 0});
+}
 
-
+function openGameBox(e){
+    let gameBox = document.querySelector(".gamesBox");
+    if(gameBox.dataset.value == 'true'){
+        console.log(gameBox.dataset.value)
+        gameBox.classList.remove('hide');
+        gsap.to(gameBox,{duration:1, y:100, opacity:1});
+        gameBox.dataset.value = 'false';
+        gameBox.style.opacity = 0;
+    }
+    else{
+        gsap.to(gameBox,{duration:1, y:-100, opacity:1});
+        // gameBox.classList.add('hide');
+        gameBox.dataset.value = 'true';
+        gameBox.style.opacity = 0;
+    }
+   
+}
+// SCROLL
+gsap.registerPlugin(ScrollTrigger);
 gsap.from(".calculator",{
     scrollTrigger: {
         trigger: ".calculator",
@@ -83,6 +124,7 @@ gsap.from(".rolexPr",{
 gsap.from(".tic-tac-toe",{
     scrollTrigger: {
         trigger: ".tic-tac-toe",
+        start: "top center",
         toggleActions: "restart none none none"
     },
     x:1000,
@@ -115,6 +157,7 @@ gsap.from(".climaContainer",{
 gsap.from(".footerCls",{
     scrollTrigger: {
         trigger: ".footerCls",
+        start: "top center",
         toggleActions: "restart none none none"
     },
     y:-100,
@@ -122,9 +165,9 @@ gsap.from(".footerCls",{
     opacity: 0,
     ease: 'bounce'
 });
-function scrollerFnc(scroll){
+function scrollerFnc(){
     window.scroll({
-        top: scroll, 
+        top: scrollY -300, 
         behavior: "smooth"
     })
 }
@@ -136,39 +179,9 @@ function navHeadFunc(e){
     });
     gsap.to(e.children[0], {y:0, duration: 0.5, opacity: 1, display: "inline-grid"});
     
-    scrollerFnc(e.dataset.scroll)
+    scrollerFnc()
 }
-// JS OF HOME TEXT
-
-
-setInterval(() => {
-    let textHome =  document.querySelector(".iAmTxt");
-    gsap.to(textHome, {duration: 1, width: 0, onComplete: function(){
-        if(textHome.textContent == "Jose Pablo"){
-            textHome.textContent = "Front-End";
-        }
-        else{
-            textHome.textContent = "Jose Pablo";
-        }
-    }});
-    gsap.to(textHome, {delay:1, duration: 1, width: 160});
-   
-    
-}, 3000);
-
-function startPrt(){
-    document.querySelector("body").style.overflowY = 'scroll'
-    gsap.to('.home', {opacity:0, display: 'none'});
-    gsap.to('.fatherContainer', {delay:1, duration: 1, display:'block', opacity:1 });
-    gsap.from(".bmoDance", {y:-500,delay: 2, duration: 1, opacity: -1});
-    gsap.from(".bmoGif", {y:-500,delay: 2, duration: 1, opacity: -1});
-    gsap.from(".lineOne", {delay:2, x:-5000, duration: 2, opacity: -1});
-    gsap.from(".bmoSit", {x:-600,delay: 2,duration: 2.5, ease:'back'});
-    gsap.from(".iAm", {delay:2, x: -1000, opacity: 0})
-}
-
 // JS OF CALCULATOR
-
 function numeros(e){
     document.querySelector(".typerInp").value += e.value;
     document.querySelector(".result").textContent = eval(document.querySelector(".typerInp").value);
@@ -512,7 +525,7 @@ const form = document.querySelector('.getWeather')
 
 function callapi(city, country){
     const apiId = '7438c9481c599ed981801783b7e38850';
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal.value},${nameCountry.value}&appid=${apiId}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal.value},${nameCountry.value}&appid=7438c9481c599ed981801783b7e38850`;
     fetch(apiUrl)
     .then(resp => resp.json())
     .then(data => {
@@ -539,34 +552,43 @@ form.addEventListener('submit', (e)=>{
 let childrenCls;
 let clickFooter = true;
 function funcsFooter(e){
-    document.querySelectorAll(".cardContact").forEach(ele => {
-        if(ele.dataset.value == 'false'){
-            gsap.to(ele, {y:0, duration: 0.5,opacity: 0, onComplete: () => {
-                ele.dataset.value = 'true';
-                ele.classList.add("hide");
-                console.log('Animación completa');
-            }});  
-        }
-    });
     childrenCls = e.children[2];
-    childrenCls.dataset.value = false;
-    childrenCls.classList.remove("hide");
-    gsap.to(childrenCls, {y:-150,duration: 1, opacity: 1});
-    // if(clickFooter === 1){
-       
-    // }
-    // console.log(clickFooter)
+    if(e.children[2].dataset.value == 'true'){
+        document.querySelectorAll(".cardContact").forEach(ele => {
+            if(ele.dataset.value == 'false'){
+                console.log(ele.dataset.value);
+                gsap.to(ele, {y:0, duration: 0.5,opacity: 0, onComplete: () => {
+                    ele.dataset.value = 'true';
+                    ele.classList.add("hide");
+                }});  
+            }
+        });
+        childrenCls.dataset.value = 'false';
+        childrenCls.classList.remove("hide");
+        gsap.to(childrenCls, {y:-150,duration: 1, opacity: 1});
+    }
+    else{
+        gsap.to(childrenCls, {y:0, duration: 0.5,opacity: 0, onComplete: () => {
+            childrenCls.dataset.value = 'true';
+            childrenCls.classList.add("hide");
+        }});  
+    }
 }
-// function firstClick(e){
-//     clickFooter++
-//     if()
-//     childrenCls = e.children[2];
-//         childrenCls.dataset.value = false;
-//         childrenCls.classList.remove("hide");
-//         gsap.to(childrenCls, {y:-150,duration: 1, opacity: 1});
-//     console.log(clickCount)
-// }
+// JS OF WINDOW SIZE
+let windowSize = window.innerWidth;
+if(windowSize < 700){
+    document.querySelector('header').insertAdjacentHTML('beforeend', `<div class="bi"><img src="./img/pngMenu.png" onclick="displayMenu(this)" class="imgMenu"><p>Menu</p></div>`);
+}
+function displayMenu(e){
+    if(document.querySelector('.navGray').dataset.value == 'true'){
+        document.querySelector('.navGray').dataset.value = 'false'
+        document.querySelector('.imgMenu').src = './img/blue-x-png-1.png'
+        gsap.to('.navGray', {y:1000,duration: 1, opacity: 1, display: 'block'});
+    }else{
+        document.querySelector('.imgMenu').src = './img/pngMenu.png'
+        document.querySelector('.navGray').dataset.value = 'true'
+        gsap.to('.navGray', {y:0,duration: 1, opacity: 1,});
 
-// function displayerFooter(ele){
-    
-// }
+    }
+   
+}

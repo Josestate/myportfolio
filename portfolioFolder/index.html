@@ -30,65 +30,62 @@
             <header>
                 <img src="img/bmodance.gif" alt="" class="bmoDance bmo">
                 <img src="./img/BMOgif.gif" alt="" class="bmoGif bmo">
-                <nav class="navGray">
+                <nav class="navGray" data-value = "true">
                     <ul class="ulFather">
                         <!-- <div class="selectorIcons"></div> -->
-                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="100">
+                        <ul class="headNav" onclick="navHeadFunc(this)">
                             <p class="material-symbols-outlined meSpan">
                                 account_box
                             </p>
-                            <li>Me</li>
+                            <li><a class="linksNav" href="#cardId">Me</a></li>
                         </ul>
-                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="1226">
+                        <ul class="headNav" onclick="navHeadFunc(this)" id="calcuHeadId">
                             <p class="material-symbols-outlined calcSpan">
                                 calculate
                             </p>
-                            <li>Calculator</li>
+                            <li><a class="linksNav" href="#calcuId">Calculator</a></li>
                         </ul>
-                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="1962">
+                        <ul class="headNav"  onclick="navHeadFunc(this)">
                             <p class="material-symbols-outlined tdSpan">
                                 select_check_box
                             </p>
-                            <li>Td List</li>
+                            <li><a class="linksNav" href="#tdListId">Td List</a></li>
                         </ul>
-                        <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover" >
+                        <button type="button" class="btn btn-secondary btnGamesBox" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover" onclick="openGameBox(this)">
                             Games   
                         </button>
-                        <!-- <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="2768">
-                            <p class="material-symbols-outlined gameSpan">
-                                stadia_controller
-                            </p>
-                            <li>Game</li>
-                        </ul> -->
-                        <!-- <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="1962">
-                            <p class="material-symbols-outlined homeSpan">
-                                home
-                            </p>
-                            <li>Home</li>
-                        </ul> -->
-                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="3568">
+                        <div class="gamesBox hide" data-value = 'true'>
+                            <ul class="headNav gameBoxItems"  onclick="navHeadFunc(this)">
+                                <p class="material-symbols-outlined gameSpan">
+                                    stadia_controller
+                                </p>
+                                <li><a class="linksNav" href="#rpsHeadId">Rock, paper, scissors</a></li>
+                            </ul>
+                            <ul class="headNav gameBoxItems"  onclick="navHeadFunc(this)">
+                                <p class="material-symbols-outlined gameSpan">
+                                    stadia_controller
+                                </p>
+                                <li><a class="linksNav" href="#tictacHeadId">tic-tac-toe</a></li>
+                            </ul>
+                        </div>
+                        <ul class="headNav"  onclick="navHeadFunc(this)" id="mundialHeadId">
                             <p class="material-symbols-outlined mundialSpan">
                                 robot
                             </p>
-                            <li>Mundial Api</li>
+                            <li><a class="linksNav" href="#mundialId">Mundial</a></li>
                         </ul>
-                        <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="4044">
+                        <ul class="headNav"  onclick="navHeadFunc(this)" id="roleHeadId">
                             <p class="material-symbols-outlined rolexSpan">
                                 robot
                             </p>
-                            <li>Rolex Pr</li>
+                            <li><a class="linksNav" href="#rolexId">Rolex</a></li>
                         </ul>
-                        <!-- <ul class="headNav"  onclick="navHeadFunc(this)" data-scroll="4744">
-                            <p class="material-symbols-outlined gameSpan">
-                                stadia_controller
-                            </p>
-                            <li>tic-tac-toe</li>
-                        </ul> -->
-                        <ul class="headNav" onclick="navHeadFunc(this)" data-scroll="5382">
+                    
+                        <ul class="headNav" onclick="navHeadFunc(this)">
                             <p class="material-symbols-outlined meSpan">
                                 account_box
                             </p>
-                            <li>clima</li>
+                            <li><a class="linksNav" href="#climaHeadId">Clima</a></li>
                         </ul>
                     </ul>
                 </nav>
@@ -99,7 +96,6 @@
                     <div class="iAm" id="cardId">
                         <div class="card" style="width:500px">
                             <h4 class="card-title">Jose Pablo</h4>
-                            <!-- <img class="card-img-top" src="./img/meImg.jpg" alt="Card image"> -->
                             <div class="card-img-overlay">
                                 <p class="card-text"><h2>Front-end Developer</h2>
                                     <p><strong>Skills:</strong>HTML, CSS, Bootstrap, JavaScript, jQuery, GreenSock.</p>
@@ -175,7 +171,7 @@
                         </div>
                     </div>
                 
-                    <div class="gameContainer">
+                    <div class="gameContainer" id="rpsHeadId">
                         <div class="settingsOfGame">
                             <div class="custom" id="gameId">
                                 <h1>Customize Game</h1>
@@ -224,7 +220,7 @@
                         <p>Is a practice of a rolex shop</p>
                         <a href="https://rolexpractice.netlify.app/" target="_blank" class="mundialBtn">Clik here to run project</a>
                     </div>
-                    <div class="tic-tac-toe">
+                    <div class="tic-tac-toe" id="tictacHeadId">
                         <div class="containerOfElements">
                             <div class="circlesBox">
                                 <img src="./img/circle-image.png" alt="" class="circleImg" onclick="clickCircle(this)">
@@ -240,7 +236,7 @@
                         </div>
                     </div> 
                     
-                    <div class="climaContainer">
+                    <div class="climaContainer" id="climaHeadId">
                         <div class="appClima">
                             <div class="resultClima">
                                 <h1>Buscador de clima</h1>
