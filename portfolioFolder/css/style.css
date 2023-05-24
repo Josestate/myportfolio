@@ -5,7 +5,7 @@
     color: #ffff;
 }
 input{
-    color: #2950c7;;
+    color: #fff;
 }
 .fatherContainer{
     opacity: 0;
@@ -68,7 +68,7 @@ header ul li{
     font-size: medium;
 }
 .linksNav{
-    color: #2950c7;
+    color: #fff;
     text-decoration: none;
     width: fit-content;
 }
